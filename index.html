@@ -21,12 +21,12 @@
 <body>
   
   <div id="navigation" style="display:block;text-align:center">
-    <a href="https://github.com/ariecattan/CoRefi" id="logo" style="display:block;text-align:center" target="_blank">
+    <!-- <a href="https://github.com/ariecattan/CoRefi" id="logo" style="display:block;text-align:center" target="_blank"> -->
       <div class="tooltip">
         <img src="https://cdn-images-1.medium.com/max/800/1*Q9bXCpOcpxlQ0olOZrcrDw.jpeg"/>
-        <span class="tooltiptext">CoRefi Github Repo</span>
+        <!-- <span class="tooltiptext">CoRefi Github Repo</span> -->
       </div>
-    </a>
+    <!-- </a> -->
 
     <a class="button" href="https://ariecattan.github.io/corefidemo/?demo=onboarding" >
       <div class="tooltip">
@@ -109,7 +109,7 @@
    document.getElementById("logo").style.display = "none";
    document.getElementById("navigation").style.display = "none";
    document.getElementsByTagName("co-refi")[0].style.display = "block";
-   fetch(`https://raw.githubusercontent.com/ariecattan/CoRefi/master/src/data/${type}_example.json`)
+   fetch(`https://raw.githubusercontent.com/ariecattan/CoRefi/master/src/data/scirex_example.json`)
      .then(response => response.json())
      .then(data => {
        data["snackbarTimeout"] = 5000;

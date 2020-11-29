@@ -1,113 +1,42 @@
-<!DOCTYPE html>
 <html>
+  <!-- <h1 style="color: #5e9ca0;"><span style="color: #000000;">Welcome to our annotation project !</span></h1>
+  <p>&nbsp;</p>
+  <p><span style="color: #000000;">In this project, you'll be asked to annotate coreference clusters and hypernyms across scientific papers. </span></p>
+  <p>Click <a href="https://docs.google.com/document/d/1-xtEMFXX9W_1RaOoX-KkeWfjSC2sgooYuTEC7vsYYOI/edit">here</a> for the annotation guidelines. <span style="color: #000000;">
+  <h2 style="color: #2e6c80;">Onboarding Tutorial</h2>
+  <p>Click <a href="https://docs.google.com/document/d/1-xtEMFXX9W_1RaOoX-KkeWfjSC2sgooYuTEC7vsYYOI/edit#">here</a> for a live tutorial of the tool.&nbsp;</p>
+  <h2 style="color: #2e6c80;">Guided Annotation:</h2>
+  <p>In addition to the annotaiton guidelines, we provide the following "guided" annotation tutorials in which you'll actually annotate and get immediate feedback for the coreference task.&nbsp;</p>
+  <ul>
+  <li><a href="https://docs.google.com/document/d/1-xtEMFXX9W_1RaOoX-KkeWfjSC2sgooYuTEC7vsYYOI/edit#">Machine Translation</a>&nbsp;</li>
+  <li><a href="https://docs.google.com/document/d/1-xtEMFXX9W_1RaOoX-KkeWfjSC2sgooYuTEC7vsYYOI/edit#">Sentiment Analysis</a>&nbsp;</li>
+  </ul>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p><strong>&nbsp;</strong></p> -->
 
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-  <script src="https://unpkg.com/vue"></script>
-  <script src="https://github.com/ariecattan/CoRefi/releases/download/1.3/co-refi.min.js"></script>
+  <div data-app>
+    <co-refi style="display: none;"></co-refi>
+  </div>
 
-
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  <title>CoRefi</title>
-</head>
-
-<body>
-  
-  <div id="navigation" style="display:block;text-align:center">
-    <!-- <a href="https://github.com/ariecattan/CoRefi" id="logo" style="display:block;text-align:center" target="_blank"> -->
-      <div class="tooltip">
-        <img src="https://cdn-images-1.medium.com/max/800/1*Q9bXCpOcpxlQ0olOZrcrDw.jpeg"/>
-        <!-- <span class="tooltiptext">CoRefi Github Repo</span> -->
-      </div>
-    <!-- </a> -->
-
-
-    <a class="button" href="https://ariecattan.github.io/corefidemo/?demo=annotation" >
-      <div class="tooltip">
-        Annotation Demo
-        <span class="tooltiptext">Annotate Documents with CoRefi.</span>
-      </div>
-    </a>
-   
-  </div>  
- <div data-app>
-  <co-refi style="display: none;"></co-refi>
- </div>
-</body>
-  
-<style>
-#logo{
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-.button {
-  background-color: #2d9cdb; /* Cluster Blue */
-  transition-duration: 0.4s;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-  
-.button:hover #logo:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-  
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-</style>
 <script>
-  const corefi = document.getElementsByTagName("co-refi")[0].vueComponent;  
-  
-  function load(type) {
-   document.getElementById("logo").style.display = "none";
-   document.getElementById("navigation").style.display = "none";
-   document.getElementsByTagName("co-refi")[0].style.display = "block";
-   fetch(`https://raw.githubusercontent.com/ariecattan/CoRefi/master/src/data/scirex_example.json`)
-     .then(response => response.json())
-     .then(data => {
-       data["snackbarTimeout"] = 5000;
-       corefi = Object.assign(corefi, data);
-     });
-  }
-  
-  const url_string = window.location;
-  const url = new URL(url_string);
-  const demoType = url.searchParams.get("demo");
-  if (demoType){
-    load(demoType);
-  }
 
+  
+let corefi = document.getElementsByTagName("co-refi")[0].vueComponent;
+document.getElementsByTagName("co-refi")[0].style.display = "block";
+
+
+
+// fetch(`https://raw.githubusercontent.com/ariecattan/CoRefi/master/src/data/scirex_example_.json`)
+//     .then(response => response.json())
+//     .then(data => {
+//       data["snackbarTimeout"] = 5000;
+//       corefi = Object.assign(corefi, data);
+//     });
+
+
+// const url_string = window.location;
+// const url = new URL(url_string);
 
 </script>
 

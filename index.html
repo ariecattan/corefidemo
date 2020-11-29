@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/vue"></script>
-  <script src="https://github.com/aribornstein/CoRefi/releases/download/1.1/co-refi.min.js"></script>
+  <script src="https://github.com/ariecattan/CoRefi/releases/download/1.3/co-refi.min.js"></script>
 
 
   <!--[if lt IE 9]>
@@ -21,32 +21,32 @@
 <body>
   
   <div id="navigation" style="display:block;text-align:center">
-    <a href="https://github.com/aribornstein/CoRefi" id="logo" style="display:block;text-align:center" target="_blank">
+    <a href="https://github.com/ariecattan/CoRefi" id="logo" style="display:block;text-align:center" target="_blank">
       <div class="tooltip">
         <img src="https://cdn-images-1.medium.com/max/800/1*Q9bXCpOcpxlQ0olOZrcrDw.jpeg"/>
         <span class="tooltiptext">CoRefi Github Repo</span>
       </div>
     </a>
 
-    <a class="button" href="https://aribornstein.github.io/corefidemo/?demo=onboarding" >
+    <a class="button" href="https://ariecattan.github.io/corefidemo/?demo=onboarding" >
       <div class="tooltip">
         Tutorial Demo
         <span class="tooltiptext">Walkthrough CoRefi's features</span>
       </div>
      </a>
-    <a class="button" href="https://aribornstein.github.io/corefidemo/?demo=guided" >
+    <a class="button" href="https://ariecattan.github.io/corefidemo/?demo=guided" >
       <div class="tooltip">
         Guided Demo
         <span class="tooltiptext">Learn how to make Coreference Decisions with CoRefi's guided onboarding.</span>
       </div>
     </a>
-    <a class="button" href="https://aribornstein.github.io/corefidemo/?demo=annotation" >
+    <a class="button" href="https://ariecattan.github.io/corefidemo/?demo=annotation" >
       <div class="tooltip">
         Annotation Demo
         <span class="tooltiptext">Annotate Documents with CoRefi.</span>
       </div>
     </a>
-    <a class="button" href="https://aribornstein.github.io/corefidemo/?demo=review" >
+    <a class="button" href="https://ariecattan.github.io/corefidemo/?demo=review" >
       <div class="tooltip">
         Review Demo
         <span class="tooltiptext">Review a prior Annotation with CoRefi.</span>
@@ -109,7 +109,7 @@
    document.getElementById("logo").style.display = "none";
    document.getElementById("navigation").style.display = "none";
    document.getElementsByTagName("co-refi")[0].style.display = "block";
-   fetch(`https://raw.githubusercontent.com/aribornstein/CoRefi/master/src/data/${type}_example.json`)
+   fetch(`https://raw.githubusercontent.com/ariecattan/CoRefi/master/src/data/${type}_example.json`)
      .then(response => response.json())
      .then(data => {
        data["snackbarTimeout"] = 5000;

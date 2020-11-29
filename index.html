@@ -1,7 +1,130 @@
+<!DOCTYPE html>
 <html>
- <head>
- </head>
- <body>
-   <h1>Hello World<h1>
- </body>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://github.com/aribornstein/CoRefi/releases/download/1.1/co-refi.min.js"></script>
+
+
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <title>CoRefi</title>
+</head>
+
+<body>
+  
+  <div id="navigation" style="display:block;text-align:center">
+    <a href="https://github.com/aribornstein/CoRefi" id="logo" style="display:block;text-align:center" target="_blank">
+      <div class="tooltip">
+        <img src="https://cdn-images-1.medium.com/max/800/1*Q9bXCpOcpxlQ0olOZrcrDw.jpeg"/>
+        <span class="tooltiptext">CoRefi Github Repo</span>
+      </div>
+    </a>
+
+    <a class="button" href="https://aribornstein.github.io/corefidemo/?demo=onboarding" >
+      <div class="tooltip">
+        Tutorial Demo
+        <span class="tooltiptext">Walkthrough CoRefi's features</span>
+      </div>
+     </a>
+    <a class="button" href="https://aribornstein.github.io/corefidemo/?demo=guided" >
+      <div class="tooltip">
+        Guided Demo
+        <span class="tooltiptext">Learn how to make Coreference Decisions with CoRefi's guided onboarding.</span>
+      </div>
+    </a>
+    <a class="button" href="https://aribornstein.github.io/corefidemo/?demo=annotation" >
+      <div class="tooltip">
+        Annotation Demo
+        <span class="tooltiptext">Annotate Documents with CoRefi.</span>
+      </div>
+    </a>
+    <a class="button" href="https://aribornstein.github.io/corefidemo/?demo=review" >
+      <div class="tooltip">
+        Review Demo
+        <span class="tooltiptext">Review a prior Annotation with CoRefi.</span>
+      </div>    
+    </a>
+  </div>  
+ <div data-app>
+  <co-refi style="display: none;"></co-refi>
+ </div>
+</body>
+  
+<style>
+#logo{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.button {
+  background-color: #2d9cdb; /* Cluster Blue */
+  transition-duration: 0.4s;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+  
+.button:hover #logo:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+  
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<script>
+  const corefi = document.getElementsByTagName("co-refi")[0].vueComponent;  
+  
+  function load(type) {
+   document.getElementById("logo").style.display = "none";
+   document.getElementById("navigation").style.display = "none";
+   document.getElementsByTagName("co-refi")[0].style.display = "block";
+   fetch(`https://raw.githubusercontent.com/aribornstein/CoRefi/master/src/data/${type}_example.json`)
+     .then(response => response.json())
+     .then(data => {
+       data["snackbarTimeout"] = 5000;
+       corefi = Object.assign(corefi, data);
+     });
+  }
+  
+  const url_string = window.location;
+  const url = new URL(url_string);
+  const demoType = url.searchParams.get("demo");
+  if (demoType){
+    load(demoType);
+  }
+
+
+</script>
+
 </html>
